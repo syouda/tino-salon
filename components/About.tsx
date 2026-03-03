@@ -67,38 +67,22 @@ export default function About() {
             <div
               style={{
                 aspectRatio: "3/4",
-                background: "linear-gradient(135deg, #1a1a1a 0%, #222222 100%)",
                 border: "1px solid #2a2a2a",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
                 position: "relative",
                 overflow: "hidden",
               }}
             >
-              {/* Placeholder content */}
-              <div style={{ textAlign: "center", opacity: 0.3 }}>
-                <div
-                  style={{
-                    fontFamily: "var(--font-playfair), serif",
-                    fontSize: "4rem",
-                    color: "#c9a96e",
-                    fontWeight: 700,
-                  }}
-                >
-                  T
-                </div>
-                <div
-                  style={{
-                    fontSize: "0.65rem",
-                    letterSpacing: "0.3em",
-                    color: "#c9a96e",
-                    marginTop: "0.5rem",
-                  }}
-                >
-                  SALON PHOTO
-                </div>
-              </div>
+              {/* Salon photo */}
+              <img
+                src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80"
+                alt="TINO Hair Salon"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                }}
+              />
 
               {/* Decorative corner */}
               <div
@@ -110,7 +94,7 @@ export default function About() {
                   height: "40px",
                   borderTop: "1px solid #c9a96e",
                   borderLeft: "1px solid #c9a96e",
-                  opacity: 0.5,
+                  opacity: 0.6,
                 }}
               />
               <div
@@ -122,7 +106,7 @@ export default function About() {
                   height: "40px",
                   borderBottom: "1px solid #c9a96e",
                   borderRight: "1px solid #c9a96e",
-                  opacity: 0.5,
+                  opacity: 0.6,
                 }}
               />
             </div>

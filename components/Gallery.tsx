@@ -26,21 +26,12 @@ function FadeIn({
 }
 
 const galleryItems = [
-  { label: "Natural Highlight", size: "tall" },
-  { label: "Sleek Straight", size: "normal" },
-  { label: "Soft Waves", size: "normal" },
-  { label: "Ash Color", size: "wide" },
-  { label: "Bob Style", size: "normal" },
-  { label: "Texture Perm", size: "normal" },
-];
-
-const gradients = [
-  "linear-gradient(135deg, #1a1a1a 0%, #252525 100%)",
-  "linear-gradient(135deg, #1c1a18 0%, #2a2520 100%)",
-  "linear-gradient(135deg, #181818 0%, #222222 100%)",
-  "linear-gradient(135deg, #1a1a18 0%, #28261e 100%)",
-  "linear-gradient(135deg, #1a1818 0%, #252020 100%)",
-  "linear-gradient(135deg, #181a18 0%, #202522 100%)",
+  { label: "Natural Highlight", size: "tall", img: "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" },
+  { label: "Sleek Straight", size: "normal", img: "https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=80" },
+  { label: "Soft Waves", size: "normal", img: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" },
+  { label: "Ash Color", size: "wide", img: "https://images.unsplash.com/photo-1522337660859-02b9ba2436b0?w=900&q=80" },
+  { label: "Bob Style", size: "normal", img: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80" },
+  { label: "Texture Perm", size: "normal", img: "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=600&q=80" },
 ];
 
 export default function Gallery() {
@@ -105,7 +96,7 @@ export default function Gallery() {
             <div
               style={{
                 gridRow: "span 2",
-                background: gradients[0],
+                background: "#111",
                 border: "1px solid #1e1e1e",
                 aspectRatio: "3/5",
                 display: "flex",
@@ -128,7 +119,7 @@ export default function Gallery() {
             <FadeIn key={i} delay={i * 0.1}>
               <div
                 style={{
-                  background: gradients[i],
+                  background: "#111",
                   border: "1px solid #1e1e1e",
                   aspectRatio: "4/3",
                   display: "flex",
@@ -152,7 +143,7 @@ export default function Gallery() {
             <div
               style={{
                 gridColumn: "2 / span 2",
-                background: gradients[3],
+                background: "#111",
                 border: "1px solid #1e1e1e",
                 aspectRatio: "16/7",
                 display: "flex",
@@ -175,7 +166,7 @@ export default function Gallery() {
             <FadeIn key={i} delay={(i - 3) * 0.1}>
               <div
                 style={{
-                  background: gradients[i],
+                  background: "#111",
                   border: "1px solid #1e1e1e",
                   aspectRatio: "4/3",
                   display: "flex",
@@ -227,45 +218,37 @@ export default function Gallery() {
 }
 
 function GalleryPlaceholder({ index }: { index: number }) {
+  const item = galleryItems[index];
   return (
     <>
+      {/* Actual photo */}
+      <img
+        src={item.img}
+        alt={item.label}
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+        }}
+      />
       {/* Subtle overlay gradient */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.5) 100%)",
+          background: "linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.6) 100%)",
         }}
       />
-      {/* Center icon */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -60%)",
-          opacity: 0.12,
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            fontFamily: "var(--font-playfair), serif",
-            fontSize: "3rem",
-            color: "#c9a96e",
-            fontWeight: 700,
-          }}
-        >
-          {String(index + 1).padStart(2, "0")}
-        </div>
-      </div>
       {/* Hover overlay */}
       <div
         className="gallery-overlay"
         style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(201,169,110,0.06)",
+          background: "rgba(201,169,110,0.08)",
           opacity: 0,
           transition: "opacity 0.3s",
         }}
